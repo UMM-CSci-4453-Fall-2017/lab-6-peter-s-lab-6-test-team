@@ -14,6 +14,7 @@
     - [Explanations Galore](#explanations-galore)
     - [Tutorials](#tutorials)
   - [To DO](#to-do)
+  - [Cautions](#cautions)
 
 ## Giving commands to mariaDB:
 
@@ -402,3 +403,24 @@ Here are a few tutorials explicitly on node.js that might help.  Be certain you 
   - [ ] The [node exercise](#nodeEx)
      - [ ] program `showDatabases.js`
      - [ ] program `summarize-db.js`
+
+# Cautions
+
+The first node tutorial has a few issues... if things aren't working... it's probably not you... for example, the first script should be
+
+```js
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+```
