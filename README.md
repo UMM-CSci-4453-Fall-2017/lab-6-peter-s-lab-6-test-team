@@ -376,7 +376,7 @@ Here are a few tutorials explicitly on node.js that might help.  Be certain you 
 
 ### Tutorials
 
-* [Friendly Introduction to node](http://code.tutsplus.com/tutorials/node-js-for-beginners--net-26314)
+* [Friendly Introduction to node](https://blog.codeship.com/node-js-tutorial/)
 * [Introduction to node](https://www.airpair.com/javascript/node-js-tutorial):  You can skip the material on compiling node.js from scratch.
 * [Deeper introduction](https://github.com/felixge/node-mysql/):  This will be of more use to you next week.
 * [Nice overview](http://excellencemagentoblog.com/blog/2014/05/04/nodejs-async-programming-callbacks-variable-scopes/)
@@ -406,7 +406,7 @@ Here are a few tutorials explicitly on node.js that might help.  Be certain you 
 
 # Cautions
 
-The first node tutorial has a few issues... if things aren't working... it's probably not you... for example, the first script should be
+Many of the node tutorials floating around are based off of 0.8 and we are now at (or past) 0.10.  Here is an example of a working minimal http server:
 
 ```js
 const http = require('http');
@@ -424,3 +424,15 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
+
+If you see the similar (but **different**) definition:
+
+```js
+const server=http.createServer(function(request,response){
+        request.on("end",function(){
+                response.writeHead(200,{'Content-Type':'text/plain'});
+                response.end('Hello HTTP!');
+        });
+```
+
+then your tutorial is using an older version of node.
